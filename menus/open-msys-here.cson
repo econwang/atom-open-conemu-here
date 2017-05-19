@@ -1,0 +1,22 @@
+'context-menu':
+  '.tree-view.full-menu': [
+    {
+      'label': 'Open MSYS Here'
+      'command': 'open-msys-here:open-target'
+    }
+  ]
+  'atom-text-editor': [
+    'label': 'Open MSYS Here'
+    'command': 'open-msys-here:open-default'
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      {
+        'label': 'Open MSYS Here'
+        'command': 'open-msys-here:open-default'
+      }
+    ]
+  }
+]

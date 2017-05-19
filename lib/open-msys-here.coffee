@@ -9,23 +9,23 @@ module.exports =
   config:
     executablePath:
       type: 'string'
-      default: 'ConEmu.exe'
+      default: 'ConEmu64.exe'
       description: 'Path to ConEmu.exe or ConEmu64.exe.'
     extraArguments:
       type: 'string'
-      default: ''
-      description: 'Additional arguments to apply.'
+      default: '{MSYS}'
+      description: 'The MSYS Task within ConEmu.'
 
   subscriptions: null
 
   activate: ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace',
-      'open-conemu-here:open-default': => @open()
+      'open-msys-here:open-default': => @open()
     @subscriptions.add atom.commands.add '.tree-view .selected',
-      'open-conemu-here:open-target': (event) => @open(event.currentTarget)
+      'open-msys-here:open-target': (event) => @open(event.currentTarget)
     @subscriptions.add atom.commands.add 'atom-text-editor',
-      'open-conemu-here:open-target': => @open()
+      'open-msys-here:open-target': => @open()
 
    deactivate: ->
      @subscriptions.dispose()
@@ -47,11 +47,12 @@ module.exports =
 
       return if not dirpath
 
-      app = atom.config.get('open-conemu-here.executablePath')
-      args = atom.config.get('open-conemu-here.extraArguments')
+      app = atom.config.get('open-msys-here.executablePath')
+      args = atom.config.get('open-msys-here.extraArguments')
       env = {}
       for key, val of process.env
         env[key] = val
       delete env['NODE_ENV'] # Workaround for https://github.com/atom/atom/issues/3099
-      exec "start \"#{app}\" /Dir \"#{dirpath}\" #{args}",
+#     exec "start #{app} /Dir \"#{dirpath}\" #{args}",
+      exec "start #{app} /Dir \"#{dirpath}\" -run #{args}",
         env: env

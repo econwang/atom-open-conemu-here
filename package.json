@@ -1,17 +1,31 @@
 {
-  "name": "open-conemu-here",
-  "main": "./lib/open-conemu-here",
-  "version": "0.5.0",
-  "description": "Adds a shortcut to Tree View - Open ConEmu Here in the context menu",
+  "name": "open-msys-here",
+  "main": "./lib/open-msys-here",
+  "version": "0.1.0",
+  "description": "Adds a shortcut to Tree View - Open MSYS Here in the context menu",
   "activationCommands ": [
-    "open-conemu-here:open-default",
-    "open-conemu-here:open-target"
+    "open-msys-here:open-default",
+    "open-msys-here:open-target"
   ],
-  "repository": "https://github.com/ziyasal/atom-open-conemu-here",
-  "author": "Ziya SARIKAYA <sarikayaziya@gmail.com> (http://github.com/ziyasal)",
-  "homepage": "https://atom.io/packages/atom-open-conemu-here",
+  "author": {
+    "name": "Ziya SARIKAYA",
+    "email": "sarikayaziya@gmail.com",
+    "url": "http://github.com/ziyasal"
+  },
+  "contributors": [
+    {
+      "name": "Stephen Y.F. Wang",
+      "email": "econwang@econwang.com",
+      "url": "http://econwang.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/econwang/atom-open-msys-here.git"
+  },
+  "homepage": "https://github.com/econwang/atom-open-msys-here",
   "bugs": {
-    "url": "https://github.com/ziyasal/atom-open-conemu-here/issues"
+    "url": "https://github.com/econwang/atom-open-msys-here/issues"
   },
   "license": "MIT",
   "engines": {
@@ -22,5 +36,19 @@
     "conemu",
     "cmd"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "readmeFilename": "README.md",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib\\open-msys-here.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }
